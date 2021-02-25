@@ -1,0 +1,25 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findUnsortedSubarray = function(nums) {
+    for(i=0;i<nums.length;i++){
+        if(nums[i] == Math.min(...nums)){
+            nums.splice(i,1);
+            i--;
+        }
+        else{
+            break;
+        }
+    }
+    
+    for(i=nums.length-1;i>0;i--){
+        if(nums[i] == Math.max(...nums)){
+            nums.splice(i,1);
+        }
+        else{
+            break;
+        }
+    }
+    return nums.length;
+};
